@@ -15,7 +15,14 @@ class ContactController extends Controller
     public function show($id)
     {
         // return Contacts::findOrFail($id);
-        return 'test';
+
+        echo "<pre>";
+         // var_dump([{"id":8,"first_name":"Tet","middle_name":"test","last_name":"test","gender":"Male","mobile":"1232132","created_at":"2017-03-17 17:19:12","updated_at":"2017-03-17 17:19:12"}); 
+        var_dump('test')
+         die;
+        echo "</pre>";
+        
+        
     }
 
     public function store(Request $request)

@@ -14,7 +14,8 @@ class ContactController extends Controller
 
     public function show($id)
     {
-        return Contacts::findOrFail($id);
+        // return Contacts::findOrFail($id);
+        return 'test';
     }
 
     public function store(Request $request)

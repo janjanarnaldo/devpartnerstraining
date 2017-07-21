@@ -9,7 +9,7 @@ class ContactController extends Controller
 {
     public function showAll()
     {
-        return Contacts::all();
+        return Contacts::all()->where('isDeleted', 0);
     }
 
     public function show($id)
@@ -22,14 +22,46 @@ class ContactController extends Controller
 
         // store
         $contact = new Contacts;
-        $contact->first_name   = $request->input('FirstName');
-        $contact->middle_name  = $request->input('MiddleName');
-        $contact->last_name    = $request->input('LastName');
-        $contact->gender       = $request->input('Gender');
-        $contact->mobile       = $request->input('Mobile');
+        $contact->first_name   = $request->input('first_name');
+        $contact->middle_name  = $request->input('middle_name');
+        $contact->last_name    = $request->input('last_name');
+        $contact->gender       = $request->input('gender');
+        $contact->mobile       = $request->input('mobile');
+        $contact->isDeleted    = 0;
         $contact->save();
 
         return 1;
         
+    }
+
+    public function update($id, Request $request)
+    {   
+        // update
+        $contact = Contacts::find($id);
+        $contact->first_name   = $request->input('first_name');
+        $contact->middle_name  = $request->input('middle_name');
+        $contact->last_name    = $request->input('last_name');
+        $contact->gender       = $request->input('gender');
+        $contact->mobile       = $request->input('mobile');
+        $contact->isDeleted    = 0;
+        $contact->save();
+
+        return 1;
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function destroy($id)
+    {
+        // soft delete
+        $contact = Contacts::find($id);
+        $contact->isDeleted    = 1;
+        $contact->save();
+
+        return 1;
     }
 }

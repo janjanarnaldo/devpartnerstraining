@@ -14,6 +14,6 @@ class Contacts extends Model
      * @var array
      */
     protected $fillable = [
-        'first_name', 'middle_name', 'last_name', 'gender', 'mobile',
+        'first_name', 'middle_name', 'last_name', 'gender', 'mobile', 'isDeleted'
     ];
 }

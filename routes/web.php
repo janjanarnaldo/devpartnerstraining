@@ -19,3 +19,6 @@ $app->get('/ContactsGet', 'ContactController@showAll');
 $app->get('/ContactsGet/{id}', 'ContactController@show');
 
 $app->post('/ContactsSet', 'ContactController@store');
+$app->post('/ContactsSet/{id}', 'ContactController@update');
+
+$app->delete('/ContactsDelete/{id}', 'ContactController@destroy');

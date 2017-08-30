@@ -35,7 +35,7 @@ $app->post('/VoterSet', 'VoterController@store');
 $app->post('/VoterSet/{id}', 'VoterController@update');
 $app->get('/VoterGet', 'VoterController@showAll');
 $app->get('/VoterGet/{id}', 'VoterController@show');
-$app->post('/VoterLogin/{id}', 'VoterController@voterLogin');
+$app->post('/VoterLogin', 'VoterController@voterLogin');
 
 // Votes
 $app->post('/VoteSet', 'VoteController@store');
